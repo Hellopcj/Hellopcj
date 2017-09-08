@@ -191,13 +191,7 @@
         <p>相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。<br>gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们详细的了解下搭建的步骤：</p>
 <p> 一：准备工作</p>
 <p>  安装node  node的官方网址为：<a href="http://nodejs.cn/download/" target="_blank" rel="external">http://nodejs.cn/download/</a><br>  安装git   git的官方网址：<a href="https://git-scm.com/downloads" target="_blank" rel="external">https://git-scm.com/downloads</a><br>  将node和git下载下来 无脑下一步即可实现安装</p>
-<p>  测试电脑中node和git是否安装成功在控制台输入以下命令：<br>  git –version<br>  node -v<br>  npm -v<br><a href="/Hellopcj/assets/blogimg/test.png">如果出现下图表示安装成功</a>    </p>
-<p>二：创建gihub page博客</p>
-<p>在自己的gihub创建一个以自己账户名相同的 repository 创建完毕点击setting 设置page的样式 并且发布<br><a href="/Hellopcj/assets/blogimg/222.png">创建gihub博客页面</a><br>此时我们得到了一个默认的gihub博客页面<br><a href="/Hellopcj/assets/blogimg/222.png">默认的博客页面</a>   </p>
-<p>三：下载安装hexo</p>
-<p>在命令行输入<br>npm install hexo-cli -g<br>等待安装成功  如果出现warn 可尝试<br>sudo npm install -g hexo-cli</p>
-<p>在user下新建一个名为MyBlog的文件（这里一MyBlog为例）利用命令行切换到刚才新建的MyBlog<br>cd ~/MyBlog<br>hexo init MyBlog<br>npm install<br>这时等待hexo初始化到MyBlog文件中<br>此时 ls 我们可以看到文件中有这样的结构<br>|– _config.yml<br>|– package.json<br>|– scaffolds<br>|– source<br>|   |– _drafts<br>|   |– _posts<br>|– themes</p>
-<p>安装hexo server 输入以下命令：<br>sudo npm install hexo-server<br>hexo g<br>hexo server<br>可以看到下图<br><a href="/Hellopcj/assets/blogimg/server.png">本地服务器</a><br> 将链接复制到Safari可以看到默认的hexo主题页面</p>
+<p>  测试电脑中node和git是否安装成功在控制台输入以下命令：<br>  git –version<br>  node -v<br>  npm -v<br>
         
           <a class="article-more-a" href="/Hellopcj/2017/09/08/a-chrismas-ico/#more">more >></a>
         
