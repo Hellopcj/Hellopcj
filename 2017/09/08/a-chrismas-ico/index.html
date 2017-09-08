@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://hellopcj.github.io/Hellopcj">
   <title>这是我的第一个博客 hexo+gihub搭建博客 | 蒲Annie的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub">
+  <meta name="description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
 <meta name="keywords" content="杂谈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="这是我的第一个博客 hexo+gihub搭建博客">
 <meta property="og:url" content="https://hellopcj.github.io/Hellopcj/2017/09/08/a-chrismas-ico/index.html">
 <meta property="og:site_name" content="蒲Annie的博客">
-<meta property="og:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub">
-<meta property="og:updated_time" content="2017-09-08T05:13:21.000Z">
+<meta property="og:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
+<meta property="og:updated_time" content="2017-09-08T07:26:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="这是我的第一个博客 hexo+gihub搭建博客">
-<meta name="twitter:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub">
+<meta name="twitter:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
   
     <link rel="alternative" href="/atom.xml" title="蒲Annie的博客" type="application/atom+xml">
   
@@ -190,8 +190,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub</p>
-
+        <p>相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。<br>gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们详细的了解下搭建的步骤：</p>
+<p> 一：准备工作</p>
+<p>  安装node  node的官方网址为：<a href="http://nodejs.cn/download/" target="_blank" rel="external">http://nodejs.cn/download/</a><br>  安装git   git的官方网址：<a href="https://git-scm.com/downloads" target="_blank" rel="external">https://git-scm.com/downloads</a><br>  将node和git下载下来 无脑下一步即可实现安装</p>
+<p>  测试电脑中node和git是否安装成功在控制台输入以下命令：<br>  git –version<br>  node -v<br>  npm -v<br><a href="/Hellopcj/assets/blogimg/test.png">如果出现下图表示安装成功</a>    </p>
+<p>二：创建gihub page博客</p>
+<p>在自己的gihub创建一个以自己账户名相同的 repository 创建完毕点击setting 设置page的样式 并且发布<br><a href="/Hellopcj/assets/blogimg/222.png">创建gihub博客页面</a><br>此时我们得到了一个默认的gihub博客页面<br><a href="/Hellopcj/assets/blogimg/222.png">默认的博客页面</a>   </p>
+<p>三：下载安装hexo</p>
+<p>在命令行输入<br>npm install hexo-cli -g<br>等待安装成功  如果出现warn 可尝试<br>sudo npm install -g hexo-cli</p>
+<p>在user下新建一个名为MyBlog的文件（这里一MyBlog为例）利用命令行切换到刚才新建的MyBlog<br>cd ~/MyBlog<br>hexo init MyBlog<br>npm install<br>这时等待hexo初始化到MyBlog文件中<br>此时 ls 我们可以看到文件中有这样的结构<br>|– _config.yml<br>|– package.json<br>|– scaffolds<br>|– source<br>|   |– _drafts<br>|   |– _posts<br>|– themes</p>
+<p>安装hexo server 输入以下命令：<br>sudo npm install hexo-server<br>hexo g<br>hexo server<br>可以看到下图<br><a href="/Hellopcj/assets/blogimg/server.png">本地服务器</a><br> 将链接复制到Safari可以看到默认的hexo主题页面</p>
+<p>四：Hexo与gihub相关联</p>
+<p>打开MyBlog文件夹 在主目录中可以找到_config.yml文件 用文本编辑器打开<br><a href="/Hellopcj/assets/blogimg/confighexo.png">在最底部找到</a><br>将链接换成自己的gihub仓库的地址</p>
+<p>输入命令行<br> npm install hexo-deployer-git –save<br> 将生成静态页面并部署到github的仓库中，执行：<br> hexo g<br> hexo deploy<br> 或者<br> hexo d -g<br> ** INFO Deploy done: git 即上传成功，这时就可以通过gihub仓库 看到本地上传的资源</p>
+<p>五：Hexo的基本配置和Hexo主题样式</p>
+<p>hexo支持多种主题样式，大家可以从<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a> 寻找自己喜欢的主题样式<br>或者从这里找到自己心仪的主题 <a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">https://www.zhihu.com/question/24422335</a><br>博主这里用到的是(litten/hexo-theme-yilia)的主题， 以此为例</p>
+<p>控制台切换到MyBlog文件夹下 输入命令行安装主题：<br>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia<br>安装less，主题使用less作为css预处理工具：<br>npm install hexo-renderer-less –save<br>安装feed生成RSS：<br>npm install hexo-generator-feed –save<br>安装json-content，用于生成静态站点数据，提供搜索功能的数据源：<br>npm install hexo-generator-json-content –save<br>开启标签页：<br>hexo new page tags<br>修改MyBlog/source/tags/index.md的源数据：<br>layout: tags<br>noDate: true<br>comments: false<br>—保存</p>
+<p>修改MyBlog文件夹下（主目录）_Config.yml文件 theme: yilia</p>
+<p>——注意 修改_Config.yml 文件 :后面都必须有一个空格 不然会报错！每个key后面都有一个空格然后再加value——<br>输入命令行<br>hexo clean<br>hexo g<br>hexo deploy<br>将本地修改的文件 上传到gihub上<br>也可以先 hexo server本地查看网站 确认无误后再上传</p>
+<p>六：需要注意的事</p>
+<p>需要注意的事 1：修改_Config.yml 文件 :后面都必须有一个空格 不然会报错（重要的事情说三遍）</p>
+<pre><code>2：发布到gihub发现自己的网页样式缺失  这时候99%的原因是_config.yml 的url和root的路径有问题 
+除了修改主目录下的——config.yml文件 此外在themes文件夹下 你用到的 样式里面的_config.yml 的root 和url也需要修改
+[具体如图](/Hellopcj/assets/blogimg/configroot.png)
+这里面的url是你自己博客的地址 root是在自己项目gihub上存放网页的目录
+如果还是改不好 可以在Safair调出控制台 查看自己gihub网页的具体结构
+调出Safari控制台的步骤（在启动Safari的基础上） 点击左侧系统偏好设置&gt;高级  勾选最下方 在菜单栏中显示“开发”菜单
+回到Gihub blog页面 右键鼠标点击 检查元素 即可查看具体内容
+</code></pre>
       
 
       
