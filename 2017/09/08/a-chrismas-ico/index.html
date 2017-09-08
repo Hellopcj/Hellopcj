@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://hellopcj.github.io/Hellopcj/2017/09/08/a-chrismas-ico/index.html">
 <meta property="og:site_name" content="蒲Annie的博客">
 <meta property="og:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
-<meta property="og:updated_time" content="2017-09-08T07:26:55.000Z">
+<meta property="og:updated_time" content="2017-09-08T07:44:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="这是我的第一个博客 hexo+gihub搭建博客">
 <meta name="twitter:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
@@ -200,6 +200,7 @@
 <p>在命令行输入<br>npm install hexo-cli -g<br>等待安装成功  如果出现warn 可尝试<br>sudo npm install -g hexo-cli</p>
 <p>在user下新建一个名为MyBlog的文件（这里一MyBlog为例）利用命令行切换到刚才新建的MyBlog<br>cd ~/MyBlog<br>hexo init MyBlog<br>npm install<br>这时等待hexo初始化到MyBlog文件中<br>此时 ls 我们可以看到文件中有这样的结构<br>|– _config.yml<br>|– package.json<br>|– scaffolds<br>|– source<br>|   |– _drafts<br>|   |– _posts<br>|– themes</p>
 <p>安装hexo server 输入以下命令：<br>sudo npm install hexo-server<br>hexo g<br>hexo server<br>可以看到下图<br><a href="/Hellopcj/assets/blogimg/server.png">本地服务器</a><br> 将链接复制到Safari可以看到默认的hexo主题页面</p>
+<a id="more"></a>
 <p>四：Hexo与gihub相关联</p>
 <p>打开MyBlog文件夹 在主目录中可以找到_config.yml文件 用文本编辑器打开<br><a href="/Hellopcj/assets/blogimg/confighexo.png">在最底部找到</a><br>将链接换成自己的gihub仓库的地址</p>
 <p>输入命令行<br> npm install hexo-deployer-git –save<br> 将生成静态页面并部署到github的仓库中，执行：<br> hexo g<br> hexo deploy<br> 或者<br> hexo d -g<br> ** INFO Deploy done: git 即上传成功，这时就可以通过gihub仓库 看到本地上传的资源</p>
