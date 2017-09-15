@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://hellopcj.github.io/Hellopcj/2017/09/14/rebond/index.html">
 <meta property="og:site_name" content="蒲Annie的博客">
 <meta property="og:description" content="相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过） 废话不多说，下面我们就开始分析源代码（very fuc">
-<meta property="og:updated_time" content="2017-09-15T03:56:50.000Z">
+<meta property="og:updated_time" content="2017-09-15T06:18:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Facebook rebond 弹簧功能源码分析">
 <meta name="twitter:description" content="相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过） 废话不多说，下面我们就开始分析源代码（very fuc">
@@ -245,7 +245,7 @@
 <ul>
 <li>SpringConfigRegistry</li>
 </ul>
-<p>放置大批量SpringConfig的类库。在SpringConfigRegistry中 声明了一个SpringConfig的map集合，主要的作用就是add和remove SpringConfig 不过这个貌似是多个弹簧动画？ 貌似没有没有用到这个类</p>
+<p>放置大批量SpringConfig的类库。在SpringConfigRegistry中 声明了一个SpringConfig的map集合，主要的作用就是add和remove SpringConfig 在下文SpringChain会提到</p>
 <ul>
 <li>OrigamiValueConverter</li>
 </ul>
