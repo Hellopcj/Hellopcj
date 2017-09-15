@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://hellopcj.github.io/Hellopcj/2017/09/14/rebond/index.html">
 <meta property="og:site_name" content="蒲Annie的博客">
 <meta property="og:description" content="相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过） 废话不多说，下面我们就开始分析源代码（very fuc">
-<meta property="og:updated_time" content="2017-09-15T06:18:46.000Z">
+<meta property="og:updated_time" content="2017-09-15T06:22:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Facebook rebond 弹簧功能源码分析">
 <meta name="twitter:description" content="相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过） 废话不多说，下面我们就开始分析源代码（very fuc">
@@ -226,10 +226,10 @@
 <p>这个不用多说 此类提供创建四种视图布局分别为</p>
 </li>
 </ul>
-<p><code><br>createMatchParams();<br></code></p>
-<p><code><br>createWrapParams();<br></code></p>
-<p><code><br>createWrapMatchParams();<br></code></p>
-<p><code><br>createMatchWrapParams();<br></code></p>
+<p>createMatchParams();</p>
+<p>createWrapParams();</p>
+<p>createWrapMatchParams();</p>
+<p>createMatchWrapParams();</p>
 <ul>
 <li><p>ui文件夹下SpringConfiguratorView（可省略）</p>
 <p>这个我仔细看了下 发现可能是原demo有个手动滑动设置张力摩擦力的seekbar 这里不需要用到 所以忽略掉</p>
@@ -240,8 +240,10 @@
 <li>SpringConfig</li>
 </ul>
 <p>这里是设置弹簧张力和拉力的类，类中声明Spring的张力和摩擦力，在这个类中我们可以通过调用</p>
-<p><code><br>fromOrigamiTensionAndFriction(Tension,Friction)<br></code></p>
-<p>方法来设置我们弹簧的张力和拉力，而这会return一个参数经过OrigamiValueConverter转换的SpringConfig对象，假如你想用默认的参数也可以通过直接调用暴露给的静态方法<br><code><br>SpringConfig.defaultConfig<br></code>，返回的是<code>fromOrigamiTensionAndFriction(40.0D, 7.0D)</code> 既默认40 70</p>
+<p>fromOrigamiTensionAndFriction(Tension,Friction)</p>
+<p>方法来设置我们弹簧的张力和拉力，而这会return一个参数经过OrigamiValueConverter转换的SpringConfig对象，假如你想用默认的参数也可以通过直接调用暴露给的静态方法</p>
+<p>SpringConfig.defaultConfig</p>
+<p>，返回的是<code>fromOrigamiTensionAndFriction(40.0D, 7.0D)</code> 既默认40 70</p>
 <ul>
 <li>SpringConfigRegistry</li>
 </ul>
