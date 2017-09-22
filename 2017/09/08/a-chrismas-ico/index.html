@@ -78,7 +78,7 @@
 <link href="/Hellopcj/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="搭建博客," />
+  <meta name="keywords" content="前端,Android笔记,html5,开源项目,视频音频,Coder,随笔,css,Unity3d,cocs2d,photoshop,AfterEfect" />
 
 
 
@@ -97,7 +97,7 @@
 
 
 <meta name="description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
-<meta name="keywords" content="搭建博客">
+<meta name="keywords" content="前端,Android笔记,html5,开源项目,视频音频,Coder,随笔,css,Unity3d,cocs2d,photoshop,AfterEfect">
 <meta property="og:type" content="article">
 <meta property="og:title" content="超级干货系列 hexo+gihub搭建博客">
 <meta property="og:url" content="https://hellopcj.github.io/Hellopcj/2017/09/08/a-chrismas-ico/index.html">
@@ -109,7 +109,7 @@
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/222.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/server.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/confighexo.png">
-<meta property="og:updated_time" content="2017-09-11T10:25:29.000Z">
+<meta property="og:updated_time" content="2017-09-22T02:46:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="超级干货系列 hexo+gihub搭建博客">
 <meta name="twitter:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
@@ -154,6 +154,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?49c60407cbc6bc5fc7588c2369aa4033";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -219,16 +229,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/Hellopcj/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于作者
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-open">
           <a href="/Hellopcj/open" rel="section">
             
@@ -269,16 +269,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/Hellopcj/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/Hellopcj/categories/" rel="section">
             
@@ -288,11 +278,59 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-about">
+          <a href="/Hellopcj/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于作者
+          </a>
+        </li>
+      
 
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -360,6 +398,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/Hellopcj/categories/搭建博客/" itemprop="url" rel="index">
+                    <span itemprop="name">搭建博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -440,12 +500,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/Hellopcj/tags/搭建博客/" rel="tag"># 搭建博客</a>
-          
-        </div>
-      
 
       
       
@@ -493,6 +547,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="uyan_frame"></div>
+    
   </div>
 
 
@@ -538,16 +594,16 @@
           
 
           
-
-          
             
             
-            <div class="site-state-item site-state-tags">
-              <a href="/Hellopcj/tags/index.html">
+            <div class="site-state-item site-state-categories">
+              <a href="/Hellopcj/categories/index.html">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">分类</span>
               </a>
             </div>
+          
+
           
 
         </nav>
@@ -794,6 +850,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/Hellopcj/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/Hellopcj/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/Hellopcj/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

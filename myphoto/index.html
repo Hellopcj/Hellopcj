@@ -152,6 +152,16 @@
 
 
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?49c60407cbc6bc5fc7588c2369aa4033";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 
@@ -216,16 +226,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/Hellopcj/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于作者
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-open">
           <a href="/Hellopcj/open" rel="section">
             
@@ -266,16 +266,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/Hellopcj/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/Hellopcj/categories/" rel="section">
             
@@ -285,11 +275,59 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-about">
+          <a href="/Hellopcj/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于作者
+          </a>
+        </li>
+      
 
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -343,6 +381,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="uyan_frame"></div>
+    
   </div>
 
 
@@ -388,16 +428,16 @@
           
 
           
-
-          
             
             
-            <div class="site-state-item site-state-tags">
-              <a href="/Hellopcj/tags/index.html">
+            <div class="site-state-item site-state-categories">
+              <a href="/Hellopcj/categories/index.html">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">分类</span>
               </a>
             </div>
+          
+
           
 
         </nav>
@@ -644,6 +684,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/Hellopcj/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/Hellopcj/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/Hellopcj/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 
