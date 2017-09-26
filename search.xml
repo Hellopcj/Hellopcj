@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[基于Hexo和Github搭建博客]]></title>
-    <url>%2FHellopcj%2F2017%2F09%2F20%2FphotoPostName%2F</url>
-    <content type="text"><![CDATA[##这个是一篇测试文档 hekki dasdasjdajslddbahdbasbdas]]></content>
+    <title><![CDATA[testpage]]></title>
+    <url>%2FHellopcj%2F2017%2F09%2F26%2Ftestpage%2F</url>
+    <content type="text"><![CDATA[asdasdasdasdasdas]]></content>
       <categories>
-        <category>搭建博客</category>
+        <category>源码分析</category>
       </categories>
-      <tags>
-        <tag>npm</tag>
-        <tag>hexo</tag>
-        <tag>github</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[Facebook rebond 弹簧功能源码分析]]></title>
