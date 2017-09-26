@@ -96,24 +96,25 @@
 
 
 
-<meta name="description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
+<meta name="description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就">
 <meta name="keywords" content="前端,Android笔记,html5,开源项目,视频音频,Coder,随笔,css,Unity3d,cocs2d,photoshop,AfterEfect">
 <meta property="og:type" content="article">
 <meta property="og:title" content="超级干货系列 hexo+gihub搭建博客">
 <meta property="og:url" content="https://hellopcj.github.io/Hellopcj/2017/09/08/a-chrismas-ico/index.html">
 <meta property="og:site_name" content="蒲Annie的博客">
-<meta property="og:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
+<meta property="og:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/blog.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/test.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/222.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/222.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/server.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/confighexo.png">
-<meta property="og:updated_time" content="2017-09-22T05:49:01.000Z">
+<meta property="og:updated_time" content="2017-09-26T06:52:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="超级干货系列 hexo+gihub搭建博客">
-<meta name="twitter:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们">
-<meta name="twitter:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/test.png">
+<meta name="twitter:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就">
+<meta name="twitter:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/blog.png">
 
 
 
@@ -122,7 +123,7 @@
   var CONFIG = {
     root: '/Hellopcj/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -400,10 +401,13 @@
       
 
       
-        <p>相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。<br>gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们详细的了解下搭建的步骤：</p>
-<p> 一：准备工作</p>
+        <!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
+<!-- 其中 class="full-image" 是必须的 -->
+<p><img src="/Hellopcj/assets/blogimg/blog.png" class="full-image"></p>
+<p>相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。<br>gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就让我们详细的了解下搭建的步骤：<br>  <a id="more"></a><br> 一：准备工作</p>
 <p>  安装node  node的官方网址为：<a href="http://nodejs.cn/download/" target="_blank" rel="external">http://nodejs.cn/download/</a><br>  安装git   git的官方网址：<a href="https://git-scm.com/downloads" target="_blank" rel="external">https://git-scm.com/downloads</a><br>  将node和git下载下来 无脑下一步即可实现安装</p>
-<p>  测试电脑中node和git是否安装成功在控制台输入以下命令：<br>  git –version<br>  node -v<br>  npm -v<br>  <a id="more"></a><br><img src="/Hellopcj/assets/blogimg/test.png" alt="如果出现下图表示安装成功">    </p>
+<p>  测试电脑中node和git是否安装成功在控制台输入以下命令：<br>  git –version<br>  node -v<br>  npm -v</p>
+<p><img src="/Hellopcj/assets/blogimg/test.png" alt="如果出现下图表示安装成功">    </p>
 <p>二：创建gihub page博客</p>
 <p>在自己的gihub创建一个以自己账户名相同的 repository 创建完毕点击setting 设置page的样式 并且发布<br><img src="/Hellopcj/assets/blogimg/222.png" alt="创建gihub博客页面"><br>此时我们得到了一个默认的gihub博客页面<br><img src="/Hellopcj/assets/blogimg/222.png" alt="默认的博客页面">   </p>
 <p>三：下载安装hexo</p>
@@ -568,12 +572,21 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/Hellopcj/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/Hellopcj/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
