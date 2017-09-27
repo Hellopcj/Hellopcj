@@ -110,7 +110,7 @@
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/222.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/server.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/confighexo.png">
-<meta property="og:updated_time" content="2017-09-27T03:47:09.000Z">
+<meta property="og:updated_time" content="2017-09-27T03:56:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="超级干货系列 hexo+gihub搭建博客">
 <meta name="twitter:description" content="相信很多盆友们都想搭建属于自己的博客，但是想要拥有自己独立的服务器和域名还是蛮麻烦的，既要进行网站备案（还不一定能通过）还要自己搞网页的样式等等。 有了gihub就可以轻松搭建自己的博客。gihub+hexo搭建博客的原理大致是这样的， hexo生成本地静态博客 通过hexo与自己的gihub相关联，将自己的静态博客git到自己的gihub中。通过gihub就可以轻松的查看自己的博客。下面就">
@@ -409,21 +409,17 @@
 <p>  测试电脑中node和git是否安装成功在控制台输入以下命令：<br>  git –version<br>  node -v<br>  npm -v</p>
 <p><img src="/Hellopcj/assets/blogimg/test.png" alt="如果出现下图表示安装成功">    </p>
 <h3 id="创建gihub-page博客"><a href="#创建gihub-page博客" class="headerlink" title="创建gihub page博客"></a>创建gihub page博客</h3><p>在自己的gihub创建一个以自己账户名相同的 repository 创建完毕点击setting 设置page的样式 并且发布<br><img src="/Hellopcj/assets/blogimg/222.png" alt="创建gihub博客页面"><br>此时我们得到了一个默认的gihub博客页面<br><img src="/Hellopcj/assets/blogimg/222.png" alt="默认的博客页面">   </p>
-<p>###下载安装hexo###</p>
-<p>在命令行输入<br>npm install hexo-cli -g<br>等待安装成功  如果出现warn 可尝试<br>sudo npm install -g hexo-cli</p>
+<h3 id="下载安装hexo"><a href="#下载安装hexo" class="headerlink" title="下载安装hexo"></a>下载安装hexo</h3><p>在命令行输入<br>npm install hexo-cli -g<br>等待安装成功  如果出现warn 可尝试<br>sudo npm install -g hexo-cli</p>
 <p>在user下新建一个名为MyBlog的文件（这里一MyBlog为例）利用命令行切换到刚才新建的MyBlog<br>cd ~/MyBlog<br>hexo init MyBlog<br>npm install<br>这时等待hexo初始化到MyBlog文件中<br>此时 ls 我们可以看到文件中有这样的结构<br>|– _config.yml<br>|– package.json<br>|– scaffolds<br>|– source<br>|   |– _drafts<br>|   |– _posts<br>|– themes</p>
 <p>安装hexo server 输入以下命令：<br>sudo npm install hexo-server<br>hexo g<br>hexo server<br>可以看到下图<br><img src="/Hellopcj/assets/blogimg/server.png" alt="本地服务器"><br> 将链接复制到Safari可以看到默认的hexo主题页面</p>
-<p>###Hexo与gihub相关联###</p>
-<p>打开MyBlog文件夹 在主目录中可以找到_config.yml文件 用文本编辑器打开</p>
+<h3 id="Hexo与gihub相关联"><a href="#Hexo与gihub相关联" class="headerlink" title="Hexo与gihub相关联"></a>Hexo与gihub相关联</h3><p>打开MyBlog文件夹 在主目录中可以找到_config.yml文件 用文本编辑器打开</p>
 <p><img src="/Hellopcj/assets/blogimg/confighexo.png" alt="在最底部找到"><br>将链接换成自己的gihub仓库的地址</p>
 <p>输入命令行<br> npm install hexo-deployer-git –save<br> 将生成静态页面并部署到github的仓库中，执行：<br> hexo g<br> hexo deploy<br> 或者<br> hexo d -g<br> ** INFO Deploy done: git 即上传成功，这时就可以通过gihub仓库 看到本地上传的资源</p>
-<p>###Hexo的基本配置和Hexo主题样式###</p>
-<p>hexo支持多种主题样式，大家可以从<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a> 寻找自己喜欢的主题样式<br>或者从这里找到自己心仪的主题 <a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">https://www.zhihu.com/question/24422335</a><br>博主这里用到的是(litten/hexo-theme-yilia)的主题， 以此为例</p>
+<h3 id="Hexo的基本配置和Hexo主题样式"><a href="#Hexo的基本配置和Hexo主题样式" class="headerlink" title="Hexo的基本配置和Hexo主题样式"></a>Hexo的基本配置和Hexo主题样式</h3><p>hexo支持多种主题样式，大家可以从<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a> 寻找自己喜欢的主题样式<br>或者从这里找到自己心仪的主题 <a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">https://www.zhihu.com/question/24422335</a><br>博主这里用到的是(litten/hexo-theme-yilia)的主题， 以此为例</p>
 <p>控制台切换到MyBlog文件夹下 输入命令行安装主题：<br>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia<br>安装less，主题使用less作为css预处理工具：<br>npm install hexo-renderer-less –save<br>安装feed生成RSS：<br>npm install hexo-generator-feed –save<br>安装json-content，用于生成静态站点数据，提供搜索功能的数据源：<br>npm install hexo-generator-json-content –save<br>开启标签页：<br>hexo new page tags<br>修改MyBlog/source/tags/index.md的源数据：<br>layout: tags<br>noDate: true<br>comments: false<br>—保存</p>
 <p>修改MyBlog文件夹下（主目录）_Config.yml文件 theme: yilia</p>
 <p>——注意 修改_Config.yml 文件 :后面都必须有一个空格 不然会报错！每个key后面都有一个空格然后再加value——<br>输入命令行<br>hexo clean<br>hexo g<br>hexo deploy<br>将本地修改的文件 上传到gihub上<br>也可以先 hexo server本地查看网站 确认无误后再上传</p>
-<p>###需要注意的事###</p>
-<p>需要注意</p>
+<h3 id="需要注意的事"><a href="#需要注意的事" class="headerlink" title="需要注意的事"></a>需要注意的事</h3><p>需要注意</p>
 <pre><code>1：修改_Config.yml 文件 :后面都必须有一个空格 不然会报错（重要的事情说三遍）
 2：发布到gihub发现自己的网页样式缺失  这时候99%的原因是_config.yml 的url和root的路径有问题 
 除了修改主目录下的——config.yml文件 此外在themes文件夹下 你用到的 样式里面的_config.yml 的root 和url也需要修改
@@ -699,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建gihub-page博客"><span class="nav-text">创建gihub page博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建gihub-page博客"><span class="nav-text">创建gihub page博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装hexo"><span class="nav-text">下载安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo与gihub相关联"><span class="nav-text">Hexo与gihub相关联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo的基本配置和Hexo主题样式"><span class="nav-text">Hexo的基本配置和Hexo主题样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要注意的事"><span class="nav-text">需要注意的事</span></a></li></ol></div>
             
 
           </div>
