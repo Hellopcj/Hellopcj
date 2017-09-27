@@ -78,7 +78,7 @@
 <link href="/Hellopcj/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="“Android“" />
+  <meta name="keywords" content="Android source code," />
 
 
 
@@ -97,14 +97,14 @@
 
 
 <meta name="description" content="相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过） 废话不多说，下面我们就开始分析源代码（very fuc">
-<meta name="keywords" content="前端,Android笔记,html5,开源项目,视频音频,Coder,随笔,css,Unity3d,cocs2d,photoshop,AfterEfect">
+<meta name="keywords" content="Android source code">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Facebook rebond 弹簧功能源码分析">
 <meta property="og:url" content="https://hellopcj.github.io/Hellopcj/2017/09/14/rebond/index.html">
 <meta property="og:site_name" content="蒲Annie的博客">
 <meta property="og:description" content="相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过） 废话不多说，下面我们就开始分析源代码（very fuc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-26T04:16:44.000Z">
+<meta property="og:updated_time" content="2017-09-27T03:50:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Facebook rebond 弹簧功能源码分析">
 <meta name="twitter:description" content="相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过） 废话不多说，下面我们就开始分析源代码（very fuc">
@@ -396,7 +396,7 @@
       
         <p>相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过）</p>
 <p>废话不多说，下面我们就开始分析源代码（very fucking detailed！）</p>
-<p>（一）rebond的配置</p>
+<p>###rebond的配置###</p>
 <p>  在gradle 进行配置： </p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line"><span class="keyword">compile</span> <span class="string">'com.facebook.rebound:rebound:0.3.8'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>  或者maven部署rebond库</p>
@@ -420,8 +420,7 @@
 <p>|– SteppingLooper</p>
 <p>|– SynchronousLooper</p>
 <p>整体的结构就是这样的，下面我们来详细的介绍下每个类的作用和功能 以及rebond是怎么运作的</p>
-<p>（二） rebond的每个类的作用</p>
-<ul>
+<h3 id="rebond的每个类的作用"><a href="#rebond的每个类的作用" class="headerlink" title="rebond的每个类的作用"></a>rebond的每个类的作用</h3><ul>
 <li><p>ui文件夹下utils：</p>
 <p>这个不用多说 此类提供创建四种视图布局分别为</p>
 </li>
@@ -430,27 +429,16 @@
 <p>createWrapParams();</p>
 <p>createWrapMatchParams();</p>
 <p>createMatchWrapParams();</p>
-<ul>
-<li><p>ui文件夹下SpringConfiguratorView（可省略）</p>
-<p>这个我仔细看了下 发现可能是原demo有个手动滑动设置张力摩擦力的seekbar 这里不需要用到 所以忽略掉</p>
-<p>然而重要的是我们要清楚在Spring中，弹簧的运动轨迹遵循<a href="https://baike.baidu.com/item/胡克定律/2307271?" target="_blank" rel="external">胡克定律</a> 要我们的弹簧能够弹起来需要我们手动设置张力（TENSION）和摩擦力（FRICTION）</p>
-</li>
-</ul>
-<ul>
-<li>SpringConfig</li>
-</ul>
-<p>这里是设置弹簧张力和拉力的类，类中声明Spring的张力和摩擦力，在这个类中我们可以通过调用</p>
+<p>###ui文件夹下SpringConfiguratorView（可省略）###</p>
+<p>  这个我仔细看了下 发现可能是原demo有个手动滑动设置张力摩擦力的seekbar 这里不需要用到 所以忽略掉</p>
+<p>  然而重要的是我们要清楚在Spring中，弹簧的运动轨迹遵循<a href="https://baike.baidu.com/item/胡克定律/2307271?" target="_blank" rel="external">胡克定律</a> 要我们的弹簧能够弹起来需要我们手动设置张力（TENSION）和摩擦力（FRICTION）</p>
+<h3 id="SpringConfig"><a href="#SpringConfig" class="headerlink" title="SpringConfig"></a>SpringConfig</h3><p>这里是设置弹簧张力和拉力的类，类中声明Spring的张力和摩擦力，在这个类中我们可以通过调用</p>
 <p>fromOrigamiTensionAndFriction(Tension,Friction)</p>
 <p>方法来设置我们弹簧的张力和拉力，而这会return一个参数经过OrigamiValueConverter转换的SpringConfig对象，假如你想用默认的参数也可以通过直接调用暴露给的静态方法</p>
 <p>SpringConfig.defaultConfig</p>
 <p>，返回的是<code>fromOrigamiTensionAndFriction(40.0D, 7.0D)</code> 既默认40 70</p>
-<ul>
-<li>SpringConfigRegistry</li>
-</ul>
-<p>放置大批量SpringConfig的类库。在SpringConfigRegistry中 声明了一个SpringConfig的map集合，主要的作用就是add和remove SpringConfig 在下文SpringChain会提到</p>
-<ul>
-<li>OrigamiValueConverter</li>
-</ul>
+<h3 id="SpringConfigRegistry"><a href="#SpringConfigRegistry" class="headerlink" title="SpringConfigRegistry"></a>SpringConfigRegistry</h3><p>放置大批量SpringConfig的类库。在SpringConfigRegistry中 声明了一个SpringConfig的map集合，主要的作用就是add和remove SpringConfig 在下文SpringChain会提到</p>
+<p>###OrigamiValueConverter </p>
 <p>在SpringConfig中提到，设置张力和摩擦力经过此类进行一个转换，<br>这里代码如下：</p>
 <pre><code>public OrigamiValueConverter() {
 }
@@ -469,38 +457,17 @@ public static double frictionFromOrigamiValue(double oValue) {
 
 public static double origamiValueFromFriction(double friction) {
     return friction
-</code></pre><ul>
-<li>SpringSystem</li>
-</ul>
-<p>SpringSystem 继承于BaseSpringSystem  内部隐藏了它的构造方法，我的需要使用它的静态方法create() ，这个方法自动为我们创建了一个SpringLooper，我们来看看这个方法返回的数据<code>  return new SpringSystem(AndroidSpringLooperFactory.createSpringLooper());</code><br>这也是我们在使用弹簧功能前提，我们需要调用这个方法得到一个弹簧，之后再对这个弹簧进行基本的设置</p>
-<ul>
-<li>AndroidSpringLooperFactory</li>
-</ul>
+</code></pre><h3 id="SpringSystem"><a href="#SpringSystem" class="headerlink" title="SpringSystem"></a>SpringSystem</h3><p>SpringSystem 继承于BaseSpringSystem  内部隐藏了它的构造方法，我的需要使用它的静态方法create() ，这个方法自动为我们创建了一个SpringLooper，我们来看看这个方法返回的数据<code>  return new SpringSystem(AndroidSpringLooperFactory.createSpringLooper());</code><br>这也是我们在使用弹簧功能前提，我们需要调用这个方法得到一个弹簧，之后再对这个弹簧进行基本的设置</p>
+<p>###AndroidSpringLooperFactory </p>
 <p>在SpringSystem 我们提到，使用rebond时，自动为我们creat一个SpringLooper，此create方法根据API是否&gt;16(4.0) 为界限，自动返回不同的AndroidSpringLooper实例，不同的类又共同继承SpringLooper，也就是说 ，在这个类中，主要的作用就是根据api不同创建不同的AndroidSpringLooper对不同版本进行适配，AndroidSpringLooper 也就是looper，调用的是BaseSpringSystem的 对looper进行的迭代计算器，做的就是不断的更新SpringSystem的状态。</p>
-<ul>
-<li>SpringLooper</li>
-</ul>
-<p>上面说到以4.0为界限分别返回继承SpringLooper的不同的实例，在SpringLooper这个抽象类中，有两个抽象方法start()和stop()，子类根据自身代码来操作Looper的开始和结束需要做的事情，其实主要是调用了BaseSpringSystem的loop方法。</p>
-<ul>
-<li><p>BaseSpringSystem</p>
-<p>在BaseSpringSystem中维护了一个SpringSystemListener数组，可以进行addListener或者removelistner的操作， 并且此类提供了对Spring的注册及初始化，对弹簧运动进行迭代计算，以及loop的迭代计算，可以说  这个类是维护弹簧持续运动计算的一个类 ，概括来说 这个类为我们创建了一个弹簧该有的东西，弹簧的运动监听，弹簧的物理运动， 主要代码如下：</p>
-</li>
-</ul>
+<h3 id="SpringLooper"><a href="#SpringLooper" class="headerlink" title="SpringLooper"></a>SpringLooper</h3><p>上面说到以4.0为界限分别返回继承SpringLooper的不同的实例，在SpringLooper这个抽象类中，有两个抽象方法start()和stop()，子类根据自身代码来操作Looper的开始和结束需要做的事情，其实主要是调用了BaseSpringSystem的loop方法。</p>
+<h3 id="BaseSpringSystem"><a href="#BaseSpringSystem" class="headerlink" title="BaseSpringSystem"></a>BaseSpringSystem</h3><p> 在BaseSpringSystem中维护了一个SpringSystemListener数组，可以进行addListener或者removelistner的操作， 并且此类提供了对Spring的注册及初始化，对弹簧运动进行迭代计算，以及loop的迭代计算，可以说  这个类是维护弹簧持续运动计算的一个类 ，概括来说 这个类为我们创建了一个弹簧该有的东西，弹簧的运动监听，弹簧的物理运动， 主要代码如下：</p>
  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">//loop的迭代计算</span></div><div class="line">  <span class="keyword">public</span> void loop(double ellapsedMillis) &#123;</div><div class="line">      Iterator i$ = <span class="keyword">this</span>.mListeners.iterator();</div><div class="line"></div><div class="line">      SpringSystemListener listener;</div><div class="line">      <span class="keyword">while</span>(i$.hasNext()) &#123;</div><div class="line">          listener = (SpringSystemListener)i$.next();</div><div class="line">          listener.onBeforeIntegrate(<span class="keyword">this</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">this</span>.advance(ellapsedMillis);</div><div class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.mActiveSprings.isEmpty()) &#123;</div><div class="line">          <span class="keyword">this</span>.mIdle = <span class="literal">true</span>;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      i$ = <span class="keyword">this</span>.mListeners.iterator();</div><div class="line"></div><div class="line">      <span class="keyword">while</span>(i$.hasNext()) &#123;</div><div class="line">          listener = (SpringSystemListener)i$.next();</div><div class="line">          listener.onAfterIntegrate(<span class="keyword">this</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.mIdle) &#123;</div><div class="line">          <span class="keyword">this</span>.mSpringLooper.stop();</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      <span class="comment">// Spring 物理运动计算</span></div><div class="line">void advance(double deltaTime) &#123;</div><div class="line">      Iterator i$ = <span class="keyword">this</span>.mActiveSprings.iterator();</div><div class="line">      <span class="keyword">while</span>(i$.hasNext()) &#123;</div><div class="line">          Spring spring = (Spring)i$.next();</div><div class="line">          <span class="keyword">if</span>(spring.systemShouldAdvance()) &#123;</div><div class="line">              spring.advance(deltaTime / <span class="number">1000.0</span>D);</div><div class="line">          &#125; <span class="keyword">else</span> &#123;</div><div class="line">              <span class="keyword">this</span>.mActiveSprings.remove(spring);</div><div class="line">          &#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>Spring</li>
-</ul>
-<p>当当当当~  这就是我们的弹簧啦，在这个类中详细的计算弹簧运动的物理计算 ：代码有点多。我们可以详细的了解下弹簧的运动过程：</p>
+<h3 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h3><p>当当当当~  这就是我们的弹簧啦，在这个类中详细的计算弹簧运动的物理计算 ：代码有点多。我们可以详细的了解下弹簧的运动过程：</p>
  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">void advance(double realDeltaTime) &#123;</div><div class="line">       boolean isAtRest = <span class="keyword">this</span>.isAtRest();</div><div class="line">       <span class="keyword">if</span>(!isAtRest || !<span class="keyword">this</span>.mWasAtRest) &#123;</div><div class="line">           double adjustedDeltaTime = realDeltaTime;</div><div class="line">           <span class="keyword">if</span>(realDeltaTime &gt; <span class="number">0.064</span>D) &#123;</div><div class="line">               adjustedDeltaTime = <span class="number">0.064</span>D;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">this</span>.mTimeAccumulator += adjustedDeltaTime;</div><div class="line">           double tension = <span class="keyword">this</span>.mSpringConfig.tension;</div><div class="line">           double friction = <span class="keyword">this</span>.mSpringConfig.friction;</div><div class="line">           double position = <span class="keyword">this</span>.mCurrentState.position;</div><div class="line">           double velocity = <span class="keyword">this</span>.mCurrentState.velocity;</div><div class="line">           double tempPosition = <span class="keyword">this</span>.mTempState.position;</div><div class="line"></div><div class="line">           double dvdt;</div><div class="line">           double tempVelocity;</div><div class="line">           <span class="keyword">for</span>(tempVelocity = <span class="keyword">this</span>.mTempState.velocity; <span class="keyword">this</span>.mTimeAccumulator &gt;= <span class="number">0.001</span>D; velocity += dvdt * <span class="number">0.001</span>D) &#123;</div><div class="line">               <span class="keyword">this</span>.mTimeAccumulator -= <span class="number">0.001</span>D;</div><div class="line">               <span class="keyword">if</span>(<span class="keyword">this</span>.mTimeAccumulator &lt; <span class="number">0.001</span>D) &#123;</div><div class="line">                   <span class="keyword">this</span>.mPreviousState.position = position;</div><div class="line">                   <span class="keyword">this</span>.mPreviousState.velocity = velocity;</div><div class="line">               &#125;</div><div class="line"></div><div class="line">               double aAcceleration = tension * (<span class="keyword">this</span>.mEndValue - tempPosition) - friction * velocity;</div><div class="line">               tempPosition = position + velocity * <span class="number">0.001</span>D * <span class="number">0.5</span>D;</div><div class="line">               tempVelocity = velocity + aAcceleration * <span class="number">0.001</span>D * <span class="number">0.5</span>D;</div><div class="line">               double bVelocity = tempVelocity;</div><div class="line">               double bAcceleration = tension * (<span class="keyword">this</span>.mEndValue - tempPosition) - friction * tempVelocity;</div><div class="line">               tempPosition = position + tempVelocity * <span class="number">0.001</span>D * <span class="number">0.5</span>D;</div><div class="line">               tempVelocity = velocity + bAcceleration * <span class="number">0.001</span>D * <span class="number">0.5</span>D;</div><div class="line">               double cVelocity = tempVelocity;</div><div class="line">               double cAcceleration = tension * (<span class="keyword">this</span>.mEndValue - tempPosition) - friction * tempVelocity;</div><div class="line">               tempPosition = position + tempVelocity * <span class="number">0.001</span>D;</div><div class="line">               tempVelocity = velocity + cAcceleration * <span class="number">0.001</span>D;</div><div class="line">               double dAcceleration = tension * (<span class="keyword">this</span>.mEndValue - tempPosition) - friction * tempVelocity;</div><div class="line">               double dxdt = <span class="number">0.16666666666666666</span>D * (velocity + <span class="number">2.0</span>D * (bVelocity + cVelocity) + tempVelocity);</div><div class="line">               dvdt = <span class="number">0.16666666666666666</span>D * (aAcceleration + <span class="number">2.0</span>D * (bAcceleration + cAcceleration) + dAcceleration);</div><div class="line">               position += dxdt * <span class="number">0.001</span>D;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">this</span>.mTempState.position = tempPosition;</div><div class="line">           <span class="keyword">this</span>.mTempState.velocity = tempVelocity;</div><div class="line">           <span class="keyword">this</span>.mCurrentState.position = position;</div><div class="line">           <span class="keyword">this</span>.mCurrentState.velocity = velocity;</div><div class="line">           <span class="keyword">if</span>(<span class="keyword">this</span>.mTimeAccumulator &gt; <span class="number">0.0</span>D) &#123;</div><div class="line">               <span class="keyword">this</span>.interpolate(<span class="keyword">this</span>.mTimeAccumulator / <span class="number">0.001</span>D);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="keyword">if</span>(<span class="keyword">this</span>.isAtRest() || <span class="keyword">this</span>.mOvershootClampingEnabled &amp;&amp; <span class="keyword">this</span>.isOvershooting()) &#123;</div><div class="line">               <span class="keyword">if</span>(tension &gt; <span class="number">0.0</span>D) &#123;</div><div class="line">                   <span class="keyword">this</span>.mStartValue = <span class="keyword">this</span>.mEndValue;</div><div class="line">                   <span class="keyword">this</span>.mCurrentState.position = <span class="keyword">this</span>.mEndValue;</div><div class="line">               &#125; <span class="keyword">else</span> &#123;</div><div class="line">                   <span class="keyword">this</span>.mEndValue = <span class="keyword">this</span>.mCurrentState.position;</div><div class="line">                   <span class="keyword">this</span>.mStartValue = <span class="keyword">this</span>.mEndValue;</div><div class="line">               &#125;</div><div class="line"></div><div class="line">               <span class="keyword">this</span>.setVelocity(<span class="number">0.0</span>D);</div><div class="line">               isAtRest = <span class="literal">true</span>;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           boolean notifyActivate = <span class="literal">false</span>;</div><div class="line">           <span class="keyword">if</span>(<span class="keyword">this</span>.mWasAtRest) &#123;</div><div class="line">               <span class="keyword">this</span>.mWasAtRest = <span class="literal">false</span>;</div><div class="line">               notifyActivate = <span class="literal">true</span>;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           boolean notifyAtRest = <span class="literal">false</span>;</div><div class="line">           <span class="keyword">if</span>(isAtRest) &#123;</div><div class="line">               <span class="keyword">this</span>.mWasAtRest = <span class="literal">true</span>;</div><div class="line">               notifyAtRest = <span class="literal">true</span>;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           Iterator i$ = <span class="keyword">this</span>.mListeners.iterator();</div><div class="line"></div><div class="line">           <span class="keyword">while</span>(i$.hasNext()) &#123;</div><div class="line">               SpringListener listener = (SpringListener)i$.next();</div><div class="line">               <span class="keyword">if</span>(notifyActivate) &#123;</div><div class="line">                   listener.onSpringActivate(<span class="keyword">this</span>);</div><div class="line">               &#125;</div><div class="line"></div><div class="line">               listener.onSpringUpdate(<span class="keyword">this</span>);</div><div class="line">               <span class="keyword">if</span>(notifyAtRest) &#123;</div><div class="line">                   listener.onSpringAtRest(<span class="keyword">this</span>);</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
 <p> 这里面详细的定义了弹簧运动的各种东西，比如详细的记录弹簧运动到某个阶段的值（弹簧运动的物理状态）， 运动到某个阶段的弹簧的长度等等 。</p>
-<ul>
-<li><p>ChoreographerCompat（可省略）</p>
-<p>貌似是舞蹈者  舞蹈者就是控制图形动画和ui的类 详细可以看<a href="http://www.jianshu.com/p/996bca12eb1d" target="_blank" rel="external">这篇文章，这里详细的介绍android舞蹈者的作用</a><br>这个类根据Api是否》=16 （4.0） 控制不同api延迟或者立即 post和remove  Choreographer的Callback  这里的运用貌似是在AnimationQuee中用到，但是AnimationQuee 在实际的代码中也并未用到，所以这里可以省略不谈  看别人说好像用AnimationQuee应该是有什么坑，我觉得应该是适配的坑，，。AnimationQuee的介绍也省略</p>
-</li>
-<li><p>SpringChain</p>
-</li>
-</ul>
-<p>SpringChain 顾名思义，Spring连锁（也就是多个Spring的连锁）。如果你想多个view设置弹簧功能的需求，就可以用到SpringChain，SpringChain会从第一个图片开始一个一个得带动下一个图片的运动（如果是单个的话用Spring就可以），在这个类里，给我们提供了一个oncreat（）的静态方法供我们使用，参数依次为主拉力，主摩擦力，辅助拉力，辅助摩擦力，之后我们给每个view通过springChain.addSpring添加到队列中，并且设置SpringListener，最后通过springChain.setControlSpringIndex(0).getControlSpring().setEndValue(0);设置刚开始的弹簧的index  比如一个4个view  第一个先动的是4  那么最后一个就是0  让我们来看看具体的代码：</p>
+<h3 id="ChoreographerCompat（可省略）"><a href="#ChoreographerCompat（可省略）" class="headerlink" title="ChoreographerCompat（可省略）"></a>ChoreographerCompat（可省略）</h3><p> 貌似是舞蹈者  舞蹈者就是控制图形动画和ui的类 详细可以看<a href="http://www.jianshu.com/p/996bca12eb1d" target="_blank" rel="external">这篇文章，这里详细的介绍android舞蹈者的作用</a><br> 这个类根据Api是否》=16 （4.0） 控制不同api延迟或者立即 post和remove  Choreographer的Callback  这里的运用貌似是在AnimationQuee中用到，但是AnimationQuee 在实际的代码中也并未用到，所以这里可以省略不谈  看别人说好像用AnimationQuee应该是有什么坑，我觉得应该是适配的坑，，。AnimationQuee的介绍也省略</p>
+<h3 id="SpringChain"><a href="#SpringChain" class="headerlink" title="SpringChain"></a>SpringChain</h3><p>SpringChain 顾名思义，Spring连锁（也就是多个Spring的连锁）。如果你想多个view设置弹簧功能的需求，就可以用到SpringChain，SpringChain会从第一个图片开始一个一个得带动下一个图片的运动（如果是单个的话用Spring就可以），在这个类里，给我们提供了一个oncreat（）的静态方法供我们使用，参数依次为主拉力，主摩擦力，辅助拉力，辅助摩擦力，之后我们给每个view通过springChain.addSpring添加到队列中，并且设置SpringListener，最后通过springChain.setControlSpringIndex(0).getControlSpring().setEndValue(0);设置刚开始的弹簧的index  比如一个4个view  第一个先动的是4  那么最后一个就是0  让我们来看看具体的代码：</p>
  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">  * 将一个弹簧添加到将返回给所提供侦听器的链中。</span></div><div class="line"><span class="comment">  * <span class="doctag">@param</span>  监听SpringChain中的Spring 并且通知更新它</span></div><div class="line"><span class="comment">  * <span class="doctag">@return</span> this SpringChain for chaining（返回SpringChain的链接）</span></div><div class="line"><span class="comment">  */</span></div><div class="line"> <span class="keyword">public</span> SpringChain addSpring(<span class="keyword">final</span> SpringListener listener) &#123;</div><div class="line">   <span class="comment">// We listen to each spring added to the SpringChain and dynamically chain the springs together</span></div><div class="line">   <span class="comment">// whenever the control spring state is modified.</span></div><div class="line">   Spring spring = mSpringSystem</div><div class="line">       .createSpring()</div><div class="line">       .addListener(<span class="keyword">this</span>)</div><div class="line">       .setSpringConfig(mAttachmentSpringConfig);</div><div class="line">   mSprings.add(spring);</div><div class="line">   mListeners.add(listener);</div><div class="line">   <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">/**</span></div><div class="line"><span class="comment">/ /设置控制弹簧的索引。此弹簧将带动所有弹簧的位置进行运动</span></div><div class="line"><span class="comment">  * Set the index of the control spring. This spring will drive the positions of all the springs</span></div><div class="line"><span class="comment">  * before and after it in the list when moved.</span></div><div class="line"><span class="comment">  * <span class="doctag">@param</span> i the index to use for the control spring（指针i 用于控制弹簧）</span></div><div class="line"><span class="comment">  * <span class="doctag">@return</span> this SpringChain</span></div><div class="line"><span class="comment">  */</span></div><div class="line"> <span class="keyword">public</span> SpringChain setControlSpringIndex(int i) &#123;</div><div class="line">   mControlSpringIndex = i;</div><div class="line">   Spring controlSpring = mSprings.<span class="keyword">get</span>(mControlSpringIndex);</div><div class="line">   <span class="keyword">if</span> (controlSpring == <span class="literal">null</span>) &#123;</div><div class="line">     <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">for</span> (Spring spring : mSpringSystem.getAllSprings()) &#123;</div><div class="line">     spring.setSpringConfig(mAttachmentSpringConfig);</div><div class="line">   &#125;</div><div class="line">   getControlSpring().setSpringConfig(mMainSpringConfig);</div><div class="line">   <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 
       
@@ -516,6 +483,12 @@ public static double origamiValueFromFriction(double friction) {
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/Hellopcj/tags/Android-source-code/" rel="tag"># Android source code</a>
+          
+        </div>
       
 
       
@@ -609,8 +582,17 @@ public static double origamiValueFromFriction(double friction) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/Hellopcj/assets/img/headicon.jpg"
@@ -642,6 +624,15 @@ public static double origamiValueFromFriction(double friction) {
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/Hellopcj/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -730,6 +721,22 @@ public static double origamiValueFromFriction(double friction) {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#rebond的每个类的作用"><span class="nav-text">rebond的每个类的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringConfig"><span class="nav-text">SpringConfig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringConfigRegistry"><span class="nav-text">SpringConfigRegistry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringSystem"><span class="nav-text">SpringSystem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringLooper"><span class="nav-text">SpringLooper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BaseSpringSystem"><span class="nav-text">BaseSpringSystem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring"><span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChoreographerCompat（可省略）"><span class="nav-text">ChoreographerCompat（可省略）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringChain"><span class="nav-text">SpringChain</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
