@@ -6,7 +6,7 @@
   <link href="/Hellopcj/atom.xml" rel="self"/>
   
   <link href="https://hellopcj.github.io/Hellopcj/"/>
-  <updated>2017-09-27T03:50:33.000Z</updated>
+  <updated>2017-10-09T10:57:45.000Z</updated>
   <id>https://hellopcj.github.io/Hellopcj/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MAC系统下编译FFmpeg-Android （从编译到移植Androidstudio成功）(一)</title>
+    <link href="https://hellopcj.github.io/Hellopcj/2017/09/22/view/"/>
+    <id>https://hellopcj.github.io/Hellopcj/2017/09/22/view/</id>
+    <published>2017-09-22T07:18:11.000Z</published>
+    <updated>2017-10-09T10:57:45.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;大家好，因为我最近突然对Android的音频产生了浓厚的兴趣，所以带来了今天这篇文章。（打包过程都是我自己一步一步操作，所以比较详细） 作为老牌音频剪辑的FFmpeg 被广泛的应用，包括美拍等短视频编辑都是用的FFmpeg，可以说很多的Android处理音视频都是用的FFmpeg&lt;/p&gt;
+&lt;h3 id=&quot;什么是FFmpeg？为什么选择FFmpeg？&quot;&gt;&lt;a href=&quot;#什么是FFmpeg？为什么选择FFmpeg？&quot; class=&quot;headerlink&quot; title=&quot;什么是FFmpeg？为什么选择FFmpeg？&quot;&gt;&lt;/a&gt;什么是FFmpeg？为什么选择FFmpeg？&lt;/h3&gt;&lt;p&gt;FFmpeg是一套比较完善的音视频编解码框架，里面包含了整套诸如格式转换，音视频录制的解决方案。使用FFmpeg可以对音视频进行渲染和合成等操作，FFmpeg的功能非常强大，不仅可以采集图像，对屏幕进行录制，同时还支持以RTP方式将视频流传送给支持RTSP的流媒体服务器，支持直播应用。 FFmpeg具有很强的可移植性，可以在移植到不同操作系统 支持linux ，windows，OS X&lt;br&gt;在编译的时候 可以根据操作系统的不同下载不同操作系统的资源包。本文为mac系统,&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android音频" scheme="https://hellopcj.github.io/Hellopcj/categories/Android%E9%9F%B3%E9%A2%91/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Facebook rebond 弹簧功能源码分析</title>

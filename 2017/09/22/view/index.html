@@ -96,18 +96,22 @@
 
 
 
-<meta name="description" content="待更新中……">
+<meta name="description" content="大家好，因为我最近突然对Android的音频产生了浓厚的兴趣，所以带来了今天这篇文章。（打包过程都是我自己一步一步操作，所以比较详细） 作为老牌音频剪辑的FFmpeg 被广泛的应用，包括美拍等短视频编辑都是用的FFmpeg，可以说很多的Android处理音视频都是用的FFmpeg 什么是FFmpeg？为什么选择FFmpeg？FFmpeg是一套比较完善的音视频编解码框架，里面包含了整套诸如格式转换，">
 <meta name="keywords" content="前端,Android笔记,html5,开源项目,视频音频,Coder,随笔,css,Unity3d,cocs2d,photoshop,AfterEfect">
-<meta property="og:type" content="website">
-<meta property="og:title" content="作者的开源库">
-<meta property="og:url" content="https://hellopcj.github.io/Hellopcj/open/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MAC系统下编译FFmpeg-Android （从编译到移植Androidstudio成功）(一)">
+<meta property="og:url" content="https://hellopcj.github.io/Hellopcj/2017/09/22/view/index.html">
 <meta property="og:site_name" content="蒲Annie的博客">
-<meta property="og:description" content="待更新中……">
+<meta property="og:description" content="大家好，因为我最近突然对Android的音频产生了浓厚的兴趣，所以带来了今天这篇文章。（打包过程都是我自己一步一步操作，所以比较详细） 作为老牌音频剪辑的FFmpeg 被广泛的应用，包括美拍等短视频编辑都是用的FFmpeg，可以说很多的Android处理音视频都是用的FFmpeg 什么是FFmpeg？为什么选择FFmpeg？FFmpeg是一套比较完善的音视频编解码框架，里面包含了整套诸如格式转换，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-27T04:06:38.000Z">
+<meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpegsdk.png">
+<meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpegbash.png">
+<meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpegend.png">
+<meta property="og:updated_time" content="2017-10-09T10:57:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="作者的开源库">
-<meta name="twitter:description" content="待更新中……">
+<meta name="twitter:title" content="MAC系统下编译FFmpeg-Android （从编译到移植Androidstudio成功）(一)">
+<meta name="twitter:description" content="大家好，因为我最近突然对Android的音频产生了浓厚的兴趣，所以带来了今天这篇文章。（打包过程都是我自己一步一步操作，所以比较详细） 作为老牌音频剪辑的FFmpeg 被广泛的应用，包括美拍等短视频编辑都是用的FFmpeg，可以说很多的Android处理音视频都是用的FFmpeg 什么是FFmpeg？为什么选择FFmpeg？FFmpeg是一套比较完善的音视频编解码框架，里面包含了整套诸如格式转换，">
+<meta name="twitter:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpegsdk.png">
 
 
 
@@ -136,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="https://hellopcj.github.io/Hellopcj/open/"/>
+  <link rel="canonical" href="https://hellopcj.github.io/Hellopcj/2017/09/22/view/"/>
 
 
 
 
 
-  <title>作者的开源库 | 蒲Annie的博客</title>
+  <title>MAC系统下编译FFmpeg-Android （从编译到移植Androidstudio成功）(一) | 蒲Annie的博客</title>
   
 
 
@@ -305,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hellopcj.github.io/Hellopcj/Hellopcj/open/index.html">
+    <link itemprop="mainEntityOfPage" href="https://hellopcj.github.io/Hellopcj/Hellopcj/2017/09/22/view/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="蒲Annie_">
@@ -322,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">作者的开源库</h1>
+          <h1 class="post-title" itemprop="name headline">MAC系统下编译FFmpeg-Android （从编译到移植Androidstudio成功）(一)</h1>
         
 
         <div class="post-meta">
@@ -334,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T00:00:00+08:00">
-                2017-09-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T15:18:11+08:00">
+                2017-09-22
               </time>
             
 
@@ -350,12 +354,34 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-09-27T12:06:38+08:00">
-                2017-09-27
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-09T18:57:45+08:00">
+                2017-10-09
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/Hellopcj/categories/Android音频/" itemprop="url" rel="index">
+                    <span itemprop="name">Android音频</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -403,7 +429,36 @@
       
 
       
-        <h3 id="待更新中……"><a href="#待更新中……" class="headerlink" title="待更新中……"></a>待更新中……</h3>
+        <p>大家好，因为我最近突然对Android的音频产生了浓厚的兴趣，所以带来了今天这篇文章。（打包过程都是我自己一步一步操作，所以比较详细） 作为老牌音频剪辑的FFmpeg 被广泛的应用，包括美拍等短视频编辑都是用的FFmpeg，可以说很多的Android处理音视频都是用的FFmpeg</p>
+<h3 id="什么是FFmpeg？为什么选择FFmpeg？"><a href="#什么是FFmpeg？为什么选择FFmpeg？" class="headerlink" title="什么是FFmpeg？为什么选择FFmpeg？"></a>什么是FFmpeg？为什么选择FFmpeg？</h3><p>FFmpeg是一套比较完善的音视频编解码框架，里面包含了整套诸如格式转换，音视频录制的解决方案。使用FFmpeg可以对音视频进行渲染和合成等操作，FFmpeg的功能非常强大，不仅可以采集图像，对屏幕进行录制，同时还支持以RTP方式将视频流传送给支持RTSP的流媒体服务器，支持直播应用。 FFmpeg具有很强的可移植性，可以在移植到不同操作系统 支持linux ，windows，OS X<br>在编译的时候 可以根据操作系统的不同下载不同操作系统的资源包。本文为mac系统,</p>
+<a id="more"></a>
+<h3 id="FFmpeg编译流程"><a href="#FFmpeg编译流程" class="headerlink" title="FFmpeg编译流程"></a>FFmpeg编译流程</h3><p>FFmpeg的大致流程图为下图（用的雷神的图）<br><a href="">这里是图</a> 值得注意的是FFmpeg提供几乎各种类型的解码器，但是编码器确少之又少</p>
+<h3 id="环境资源配置及编译具体流程"><a href="#环境资源配置及编译具体流程" class="headerlink" title="环境资源配置及编译具体流程"></a>环境资源配置及编译具体流程</h3><p>1:确保你的电脑已经具备编译开发环境（ndk）安装了AndroidStudio软件环境的都应该下载了ndk这里不在赘述。</p>
+<p>如果这里作者通过androidstudio以前的配置找到了</p>
+<p><img src="/Hellopcj/assets/blogimg/ffmpegsdk.png" alt="这是图"></p>
+<p>2：直接访问<a href="http://www.ffmpeg.org/download.html" target="_blank" rel="external">官网</a>下载FFmpeg源码。 这里作者直接输入git命令获得FFmpeg：</p>
+<p><code>git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg</code></p>
+<p>（确保下载的ffmpeg是适合你的电脑操作系统）</p>
+<p>3：新建一个名为homework的文件夹（以homework为例）FFmpeg解压后可以看到有一个名为ffmpeg-3.3.4的文件夹（这里将文件夹改为ffmpeg2 以便于后期操作），将其放到homework文件夹下，打开ffmpeg2文件夹下找到configure文件，用记事本打开<br>找到</p>
+<p><code>SLIBNAME_WITH_MAJOR=’$(SLIBNAME).$(LIBMAJOR)’<br>LIB_INSTALL_EXTRA_CMD=’$$(RANLIB)”$(LIBDIR)/$(LIBNAME)”‘<br>SLIB_INSTALL_NAME=’$(SLIBNAME_WITH_VERSION)’<br>SLIB_INSTALL_LINKS=’$(SLIBNAME_WITH_MAJOR)$(SLIBNAME)’ </code></p>
+<p>替换为：</p>
+<p><code>SLIBNAME_WITH_MAJOR=’$(SLIBPREF)$(FULLNAME)-$(LIBMAJOR)$(SLIBSUF)’<br>LIB_INSTALL_EXTRA_CMD=’$$(RANLIB)”$(LIBDIR)/$(LIBNAME)”‘<br>SLIB_INSTALL_NAME=’$(SLIBNAME_WITH_MAJOR)’<br>SLIB_INSTALL_LINKS=’$(SLIBNAME)’ </code></p>
+<p>以便于生成Android开发环境能用的so包（根据雷神的说法，编译后默认生成的是so+版本号的格式，而Android只支持文件结尾为.so的资源库）</p>
+<p>4:在ffmpeg2下新建一个文件夹为ffmpegtemp 和一个脚本文件build_android.sh<br>这时运行脚本文件一般都有Permission denied字样 这是因为新建的脚本没有权限 切换到ffmpeg2下输入命令行：</p>
+<p><code>chmod +x build_android.sh</code></p>
+<p>5:脚本文件的内容网上有很多例子，需要针对我们工程的需求来生成不同的类库  下面举例一种：</p>
+<p><img src="/Hellopcj/assets/blogimg/ffmpegbash.png" alt="这是图"></p>
+<p>代码如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">export TMPDIR=/Users/user-puchunjie/homework/ffmpeg2/ffmpegtemp</div><div class="line">NDK=/Users/user-puchunjie/Library/Android/sdk/ndk-bundle</div><div class="line">PLATFORM=<span class="variable">$NDK</span>/platforms/android-<span class="number">14</span>/arch-arm</div><div class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/arm-linux-androideabi-<span class="number">4.9</span>/prebuilt/darwin-x86_64</div><div class="line">function build_one</div><div class="line">&#123;</div><div class="line">./configure \</div><div class="line">    --prefix=<span class="variable">$PREFIX</span> \</div><div class="line">    --target-os=linux \</div><div class="line">    --cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi- \</div><div class="line">    --arch=arm \</div><div class="line">    --sysroot=<span class="variable">$PLATFORM</span> \</div><div class="line">    --extra-cflags=<span class="string">"-I$PLATFORM/usr/include"</span> \</div><div class="line">    --cc=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi-gcc \</div><div class="line">    --nm=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi-nm \</div><div class="line">    --enable-shared \</div><div class="line">    --enable-runtime-cpudetect \</div><div class="line">    --enable-gpl \</div><div class="line">    --enable-small \</div><div class="line">    --enable-cross-compile \</div><div class="line">    --disable-debug \</div><div class="line">    --disable-static \</div><div class="line">    --disable-doc \</div><div class="line">    --disable-asm \</div><div class="line">    --disable-ffmpeg \</div><div class="line">    --disable-ffplay \</div><div class="line">    --disable-ffprobe \</div><div class="line">    --disable-ffserver \</div><div class="line">    --disable-postproc \</div><div class="line">    --disable-avdevice \</div><div class="line">    --disable-symver \</div><div class="line">    --disable-stripping \</div><div class="line"><span class="variable">$ADDITIONAL_CONFIGURE_FLAG</span></div><div class="line">sed -<span class="selector-tag">i</span> <span class="string">''</span> <span class="string">'s/HAVE_LRINT 0/HAVE_LRINT 1/g'</span> config.h</div><div class="line">sed -<span class="selector-tag">i</span> <span class="string">''</span> <span class="string">'s/HAVE_LRINTF 0/HAVE_LRINTF 1/g'</span> config.h</div><div class="line">sed -<span class="selector-tag">i</span> <span class="string">''</span> <span class="string">'s/HAVE_ROUND 0/HAVE_ROUND 1/g'</span> config.h</div><div class="line">sed -<span class="selector-tag">i</span> <span class="string">''</span> <span class="string">'s/HAVE_ROUNDF 0/HAVE_ROUNDF 1/g'</span> config.h</div><div class="line">sed -<span class="selector-tag">i</span> <span class="string">''</span> <span class="string">'s/HAVE_TRUNC 0/HAVE_TRUNC 1/g'</span> config.h</div><div class="line">sed -<span class="selector-tag">i</span> <span class="string">''</span> <span class="string">'s/HAVE_TRUNCF 0/HAVE_TRUNCF 1/g'</span> config.h</div><div class="line">sed -<span class="selector-tag">i</span> <span class="string">''</span> <span class="string">'s/HAVE_CBRT 0/HAVE_CBRT 1/g'</span> config.h</div><div class="line">sed -<span class="selector-tag">i</span> <span class="string">''</span> <span class="string">'s/HAVE_RINT 0/HAVE_RINT 1/g'</span> config.h</div><div class="line">make clean</div><div class="line">make -j4</div><div class="line">make install</div><div class="line">&#125;</div><div class="line">CPU=armv7-a</div><div class="line">OPTIMIZE_CFLAGS=<span class="string">"-mfloat-abi=softfp -mfpu=vfp -marm -march=$CPU "</span></div><div class="line">PREFIX=./android/<span class="variable">$CPU</span>-vfp</div><div class="line">ADDITIONAL_CONFIGURE_FLAG=</div><div class="line">build_one</div></pre></td></tr></table></figure>
+<p>（我已经把配置文件上传到我的<a href="https://pan.baidu.com/s/1c25zvyC" target="_blank" rel="external">百度网盘</a> 大家可以下载）<br>执行刚才新建的脚本文件，命令行为下：</p>
+<p><code>./build_android.sh</code></p>
+<p>如果有提示:</p>
+<p>yasm/nasm not found or too old. Use –disable-yasm for a crippled build.</p>
+<p>解决方法：<a href="http://www.tortall.net/projects/yasm/releases/yasm-1.2.0.tar.gz" target="_blank" rel="external">手动下载yasm</a><br>使用命令行切换到解压的yasm文件夹下输入以下命令：</p>
+<p><code>./configure &amp;&amp; make -j 4 &amp;&amp; sudo make install</code><br>参考<a href="http://www.jianshu.com/p/3733ae5a0243" target="_blank" rel="external">网页</a> 重新执行脚本文件build_android即可</p>
+<p>6:这时候我们就可以在ffmpeg2下看到有一个android文件夹 在lib中可以找到我们编译出来的so文件</p>
+<p><img src="/Hellopcj/assets/blogimg/ffmpegend.png" alt="这是图"></p>
+
       
     </div>
     
@@ -423,6 +478,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Hellopcj/2017/09/14/rebond/" rel="next" title="Facebook rebond 弹簧功能源码分析">
+                <i class="fa fa-chevron-left"></i> Facebook rebond 弹簧功能源码分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
@@ -643,7 +714,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#待更新中……"><span class="nav-text">待更新中……</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是FFmpeg？为什么选择FFmpeg？"><span class="nav-text">什么是FFmpeg？为什么选择FFmpeg？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FFmpeg编译流程"><span class="nav-text">FFmpeg编译流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境资源配置及编译具体流程"><span class="nav-text">环境资源配置及编译具体流程</span></a></li></ol></div>
             
 
           </div>
