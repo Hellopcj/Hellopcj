@@ -104,14 +104,15 @@
 <meta property="og:site_name" content="蒲Annie的博客">
 <meta property="og:description" content="大家好，因为我最近突然对Android的音频产生了浓厚的兴趣，所以带来了今天这篇文章。（打包过程都是我自己一步一步操作，所以比较详细） 作为老牌音频剪辑的FFmpeg 被广泛的应用，包括美拍等短视频编辑都是用的FFmpeg，可以说很多的Android处理音视频都是用的FFmpeg 什么是FFmpeg？为什么选择FFmpeg？FFmpeg是一套比较完善的音视频编解码框架，里面包含了整套诸如格式转换，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpeg.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpegsdk.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpegbash.png">
 <meta property="og:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpegend.png">
-<meta property="og:updated_time" content="2017-10-10T01:36:51.000Z">
+<meta property="og:updated_time" content="2017-10-10T03:03:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC系统下编译FFmpeg-Android （从编译到移植Androidstudio成功）(一)">
 <meta name="twitter:description" content="大家好，因为我最近突然对Android的音频产生了浓厚的兴趣，所以带来了今天这篇文章。（打包过程都是我自己一步一步操作，所以比较详细） 作为老牌音频剪辑的FFmpeg 被广泛的应用，包括美拍等短视频编辑都是用的FFmpeg，可以说很多的Android处理音视频都是用的FFmpeg 什么是FFmpeg？为什么选择FFmpeg？FFmpeg是一套比较完善的音视频编解码框架，里面包含了整套诸如格式转换，">
-<meta name="twitter:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpegsdk.png">
+<meta name="twitter:image" content="https://hellopcj.github.io/Hellopcj/assets/blogimg/ffmpeg.png">
 
 
 
@@ -354,7 +355,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-10T09:36:51+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-10T11:03:13+08:00">
                 2017-10-10
               </time>
             
@@ -432,7 +433,8 @@
         <p>大家好，因为我最近突然对Android的音频产生了浓厚的兴趣，所以带来了今天这篇文章。（打包过程都是我自己一步一步操作，所以比较详细） 作为老牌音频剪辑的FFmpeg 被广泛的应用，包括美拍等短视频编辑都是用的FFmpeg，可以说很多的Android处理音视频都是用的FFmpeg</p>
 <h3 id="什么是FFmpeg？为什么选择FFmpeg？"><a href="#什么是FFmpeg？为什么选择FFmpeg？" class="headerlink" title="什么是FFmpeg？为什么选择FFmpeg？"></a>什么是FFmpeg？为什么选择FFmpeg？</h3><p>FFmpeg是一套比较完善的音视频编解码框架，里面包含了整套诸如格式转换，音视频录制的解决方案。使用FFmpeg可以对音视频进行渲染和合成等操作，FFmpeg的功能非常强大，不仅可以采集图像，对屏幕进行录制，同时还支持以RTP方式将视频流传送给支持RTSP的流媒体服务器，支持直播应用。 FFmpeg具有很强的可移植性，可以在移植到不同操作系统 支持linux ，windows，OS X<br>在编译的时候 可以根据操作系统的不同下载不同操作系统的资源包。本文为mac系统,</p>
 <a id="more"></a>
-<h3 id="FFmpeg编译流程"><a href="#FFmpeg编译流程" class="headerlink" title="FFmpeg编译流程"></a>FFmpeg编译流程</h3><p>FFmpeg的大致流程图为下图（用的雷神的图）<br><a href="">这里是图</a> 值得注意的是FFmpeg提供几乎各种类型的解码器，但是编码器确少之又少</p>
+<h3 id="FFmpeg编译流程"><a href="#FFmpeg编译流程" class="headerlink" title="FFmpeg编译流程"></a>FFmpeg编译流程</h3><p>FFmpeg的大致流程图为下图（用的雷神的图）<br> 值得注意的是FFmpeg提供几乎各种类型的解码器，但是编码器确少之又少</p>
+<p><img src="/Hellopcj/assets/blogimg/ffmpeg.png" alt="这是图"></p>
 <h3 id="环境资源配置及编译具体流程"><a href="#环境资源配置及编译具体流程" class="headerlink" title="环境资源配置及编译具体流程"></a>环境资源配置及编译具体流程</h3><p>1:确保你的电脑已经具备编译开发环境（ndk）安装了AndroidStudio软件环境的都应该下载了ndk这里不在赘述。</p>
 <p>这里作者通过androidstudio以前的配置找到了</p>
 <p><img src="/Hellopcj/assets/blogimg/ffmpegsdk.png" alt="这是图"></p>
