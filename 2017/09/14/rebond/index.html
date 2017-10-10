@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="蒲Annie的博客">
 <meta property="og:description" content="相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过） 废话不多说，下面我们就开始分析源代码（very fuc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-27T03:50:33.000Z">
+<meta property="og:updated_time" content="2017-10-10T01:40:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Facebook rebond 弹簧功能源码分析">
 <meta name="twitter:description" content="相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过） 废话不多说，下面我们就开始分析源代码（very fuc">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-09-27T11:50:33+08:00">
-                2017-09-27
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-10T09:40:01+08:00">
+                2017-10-10
               </time>
             
           </span>
@@ -427,8 +427,7 @@
       
         <p>相信大家在项目上或多或少的用到了弹簧功能，比较常用和方便的就是facebook的开源库rebond,想要深入的了解这个开源库的使用方法就需要我们源码分析（read the fucking source code！）整个开源库的功能实现。我自己也通过rebond写了个demo 有兴趣的可以下载了解下（代码都有注释 适合菜鸟初学者了解 大神略过）</p>
 <p>废话不多说，下面我们就开始分析源代码（very fucking detailed！）</p>
-<p>###rebond的配置###</p>
-<p>  在gradle 进行配置： </p>
+<h3 id="rebond的配置"><a href="#rebond的配置" class="headerlink" title="rebond的配置"></a>rebond的配置</h3><p>  在gradle 进行配置： </p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line"><span class="keyword">compile</span> <span class="string">'com.facebook.rebound:rebound:0.3.8'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>  或者maven部署rebond库</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.facebook.rebound<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>rebound<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.3.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -766,7 +765,7 @@ public static double origamiValueFromFriction(double friction) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#rebond的每个类的作用"><span class="nav-text">rebond的每个类的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringConfig"><span class="nav-text">SpringConfig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringConfigRegistry"><span class="nav-text">SpringConfigRegistry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringSystem"><span class="nav-text">SpringSystem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringLooper"><span class="nav-text">SpringLooper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BaseSpringSystem"><span class="nav-text">BaseSpringSystem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring"><span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChoreographerCompat（可省略）"><span class="nav-text">ChoreographerCompat（可省略）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringChain"><span class="nav-text">SpringChain</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#rebond的配置"><span class="nav-text">rebond的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rebond的每个类的作用"><span class="nav-text">rebond的每个类的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringConfig"><span class="nav-text">SpringConfig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringConfigRegistry"><span class="nav-text">SpringConfigRegistry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringSystem"><span class="nav-text">SpringSystem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringLooper"><span class="nav-text">SpringLooper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BaseSpringSystem"><span class="nav-text">BaseSpringSystem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring"><span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChoreographerCompat（可省略）"><span class="nav-text">ChoreographerCompat（可省略）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringChain"><span class="nav-text">SpringChain</span></a></li></ol></div>
             
 
           </div>
