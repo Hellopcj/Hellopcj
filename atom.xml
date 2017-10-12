@@ -39,13 +39,10 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;hello 大家好，上一篇文章中提到了如何在mac下编译适配于Android的ffmpeg
-        
-      
+      &lt;p&gt;hello 大家好，上一篇文章中提到了如何在mac下编译适配于Android的ffmpeg so文件库，这篇文章给大家介绍下如何运用编译好的类库进行jni调用。&lt;/p&gt;
+&lt;p&gt;在上一篇文章中我们在文件夹中得到一个include文件夹和一个包含了so文件的lib文件夹，在include文件夹内分别有libavcodec,libavfilter,libavformat,libavutil,libswresample,libswscale文件夹，下面是具有全功能的ffmpeg类库各个包的功能(对号入座)：&lt;/p&gt;
+&lt;figure class=&quot;highlight coffeescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;libavcodec编码/解码库&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;libavfilter基于帧的编辑库图（加特效）  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;libavformatI&lt;span class=&quot;regexp&quot;&gt;/O多路复用/&lt;/span&gt;解复用库&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;libavdevice复用/解复用库专用设备（读设备）&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;libavutil常见的实用工具库&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;libswresample音频重采样、格式转换和混合&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;libpostproc后处理库&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;libswscale颜色转换和缩放的图书馆（图像拉伸，像素格式转换）&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;基于以上的介绍，我们现在进行jni调用ffmpeg库&lt;/p&gt;
     
     </summary>
     
